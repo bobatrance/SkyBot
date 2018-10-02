@@ -69,9 +69,11 @@ dependencies {
 
     //JDA (java discord api)
 //    compile (group: 'com.github.DV8FromTheWorld', name: 'JDA', version: 'a7c5b3c') {
-    compile(group: 'net.dv8tion', name: 'JDA', version: '3.8.0_432') {
+    /*compile(group: 'net.dv8tion', name: 'JDA', version: '3.8.0_432') {
         exclude module: 'opus-java'
-    }
+    }*/
+    
+    compile files("D:\\development\\java\\JDA\\build\\libs\\JDA-3.8.0_DEV-withDependencies-no-opus.jar")
 
     //Lavaplayer/Lavalink
     compile group: 'com.sedmelluq', name: 'lavaplayer', version: '1.3.7'

@@ -25,14 +25,17 @@ import me.duncte123.botCommons.text.TextColor;
 import me.duncte123.botCommons.web.WebUtils;
 import ml.duncte123.skybot.connections.database.DBManager;
 import ml.duncte123.skybot.objects.config.DunctebotConfig;
+import ml.duncte123.skybot.utils.EmbedUtils;
 import ml.duncte123.skybot.utils.GuildSettingsUtils;
 import ml.duncte123.skybot.utils.HelpEmbeds;
 import ml.duncte123.skybot.web.WebServer;
 import net.dv8tion.jda.bot.sharding.DefaultShardManagerBuilder;
 import net.dv8tion.jda.bot.sharding.ShardManager;
+import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Game;
 import net.dv8tion.jda.core.requests.RestAction;
 import net.dv8tion.jda.core.utils.cache.CacheFlag;
+import net.dv8tion.jda.webhook.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
@@ -158,13 +161,44 @@ public class SkyBot {
      */
     @Deprecated
     public static void main(String[] args) throws Exception {
-        for (String arg : args) {
+        /*for (String arg : args) {
             if ("--gen".equals(arg)) {
                 gen();
                 return;
             }
         }
-        instance = new SkyBot();
+        instance = new SkyBot();*/
+
+        WebhookClient client = new WebhookClientBuilder("https://canary.discordapp.com/api/webhooks/496595431049134080/ypiPZ4sDKmpTR3xcb7CWHT_3lZWjLyn5NwK1wvQD3B0CkIPUOfMqbmpmOFdNbx1c62aM")
+            .setWait(true)
+            .build();
+
+        WebhookMessage webhookMessage = new WebhookMessageBuilder()
+            .addEmbeds(EmbedUtils.embedMessage("test test <#387881926691782657>"))
+            .setContent("This is a test <@202930020396564480>")
+            .build();
+
+        SentWebhookMessage message = client.send(webhookMessage).get();
+
+        System.out.println(message.getAuthor());
+
+        System.out.println(message);
+
+        System.out.println(message.getContentRaw());
+
+        System.out.println(message.getMentionedUsers());
+        System.out.println(message.getMentionedRoleIds());
+
+        try {
+            JDA jda = message.getAuthor().getJDA();
+
+            System.out.println(jda.getSelfUser());
+        }
+        catch (Exception e) {
+            System.out.println("JDA should fail");
+        }
+
+        System.exit(0);
     }
 
     public static SkyBot getInstance() {
