@@ -23,6 +23,7 @@ import me.duncte123.botcommons.messaging.MessageUtils.*
 import ml.duncte123.skybot.Author
 import ml.duncte123.skybot.SinceSkybot
 import ml.duncte123.skybot.objects.ILoveStream
+import ml.duncte123.skybot.objects.Radionomy
 import ml.duncte123.skybot.objects.RadioStream
 import ml.duncte123.skybot.objects.command.CommandContext
 import ml.duncte123.skybot.objects.command.MusicCommand
@@ -139,6 +140,15 @@ class RadioCommand : MusicCommand() {
         radioStreams += RadioStream("skyradio", "http://playerservices.streamtheworld.com/api/livestream-redirect/SKYRADIO_SC", "http://www.skyradio.nl/", false)
         radioStreams += RadioStream("qmusic", "http://icecast-qmusicnl-cdp.triple-it.nl/Qmusic_nl_live_96.mp3", "http://qmusic.nl/", false)
 
+        // Radionomy
+        radioStreams += Radionomy("101smoothjazz", "101SMOOTHJAZZ")
+        radioStreams += Radionomy("100hitradio", "100-HIT-radio")
+        radioStreams += Radionomy("hotmixradiovip", "1000ClassicalHits")
+        radioStreams += Radionomy("1000classicalhits", "1000ClassicalHits")
+        radioStreams += Radionomy("#loveradio", "-LoveRadio")
+        radioStreams += Radionomy("1000hitscountry", "1000HITSCountry")
+        radioStreams += Radionomy("totallyradiothehits", "TotallyRadioTheHits")
+        
         //International radio stations
         //TODO: add international radio stations
         radioStreams += RadioStream("trapfm", "http://stream.trap.fm:6004/;stream.mp3", "http://trap.fm/")
