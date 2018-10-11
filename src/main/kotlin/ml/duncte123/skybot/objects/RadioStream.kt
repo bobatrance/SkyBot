@@ -42,3 +42,11 @@ class ILoveStream(
     website = "http://www.iloveradio.de/streams/",
     public = public
 )
+
+@SinceSkybot("3.81.0")
+class Radionomy(stationName: String, station: String) : RadioStream(
+    name = stationName,
+    url = "https://streaming.radionomy.com/${station}?lang=en%2cen-GB%3bq%3d0.9&ad=radionoweb&appName=website",
+    website = "http://www.radionomy.com/en/radio/",
+    public = true
+)
